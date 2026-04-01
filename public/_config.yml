@@ -1,0 +1,6 @@
+# GitHub Pages Jekyll configuration
+# Disable Jekyll processing to serve static files as-is
+plugins: []
+exclude:
+  - node_modules
+  - .github
