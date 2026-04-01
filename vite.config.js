@@ -6,8 +6,9 @@ export default defineConfig({
     build: {
         rollupOptions: {
             output: {
-                entryFileNames: '[name].js',
-                chunkFileNames: '[name].js',
+                manualChunks: undefined,
+                inlineDynamicImports: true,
+                entryFileNames: 'main.js',
                 assetFileNames: '[name].[ext]'
             }
         }
