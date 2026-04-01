@@ -5,12 +5,13 @@ export default defineConfig({
   base: '/finance-dashboard/',
   plugins: [react()],
   build: {
+    target: 'es2020',
     rollupOptions: {
       output: {
-        manualChunks: undefined,
-        inlineDynamicImports: true,
         entryFileNames: 'main.js',
-        assetFileNames: '[name].[ext]'
+        chunkFileNames: 'chunk-[name].js',
+        assetFileNames: '[name].[ext]',
+        manualChunks: undefined
       }
     }
   },
