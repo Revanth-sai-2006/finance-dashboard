@@ -1,17 +1,11 @@
-import React, { useState } from 'react';
-import { PieChart, Pie, Cell, Legend, Tooltip, ResponsiveContainer } from 'recharts';
+import { useState } from 'react';
+import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts';
 import { Transaction } from '../../types';
 import { getCategoryColor } from '../../utils/mockData';
 
 interface SpendingBreakdownChartProps {
   transactions: Transaction[];
 }
-
-// Create gradient colors for 3D effect
-const createGradient3D = (baseColor: string, index: number) => {
-  const lightColor = baseColor + '20';
-  return baseColor;
-};
 
 export function SpendingBreakdownChart({ transactions }: SpendingBreakdownChartProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);

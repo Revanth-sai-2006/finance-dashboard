@@ -1,8 +1,7 @@
-import React from 'react';
-import { Moon, Sun, LogOut, Download } from 'lucide-react';
+import { Moon, Sun, Download } from 'lucide-react';
 import { Dashboard } from './components/Dashboard/Dashboard';
 import { useFinance } from './context/FinanceContext';
-import { exportToJSON, exportToCSV } from './utils/helpers';
+import { exportToJSON } from './utils/helpers';
 
 function App() {
   const { role, setRole, isDarkMode, toggleDarkMode, transactions } = useFinance();
