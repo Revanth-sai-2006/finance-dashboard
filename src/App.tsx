@@ -5,9 +5,10 @@ import { exportToJSON } from './utils/helpers';
 
 // Finance Dashboard App - Professional Financial Management Interface
 function App() {
-  const { role, setRole, isDarkMode, toggleDarkMode, transactions } = useFinance();
+  try {
+    const { role, setRole, isDarkMode, toggleDarkMode, transactions } = useFinance();
 
-  return (
+    return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 transition-colors">
       {/* Header */}
       <header className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-xl border-b border-gray-200/50 dark:border-gray-700/50 sticky top-0 z-40 shadow-sm">
@@ -134,7 +135,44 @@ function App() {
         </div>
       </footer>
     </div>
-  );
+    );
+  } catch (error) {
+    console.error('App render error:', error);
+    return (
+      <div style={{ 
+        width: '100vw', 
+        height: '100vh', 
+        display: 'flex', 
+        flexDirection: 'column',
+        alignItems: 'center', 
+        justifyContent: 'center',
+        backgroundColor: '#f3f4f6',
+        fontFamily: 'system-ui, sans-serif',
+        color: '#374151'
+      }}>
+        <h1 style={{ fontSize: '24px', marginBottom: '16px', fontWeight: 'bold' }}>Finance Dashboard</h1>
+        <p style={{ fontSize: '16px', marginBottom: '16px' }}>⚠️ Error Loading Application</p>
+        <p style={{ fontSize: '14px', color: '#6b7280', maxWidth: '500px', textAlign: 'center' }}>
+          {error instanceof Error ? error.message : 'An unknown error occurred'}
+        </p>
+        <button 
+          onClick={() => window.location.reload()}
+          style={{
+            marginTop: '24px',
+            padding: '8px 16px',
+            backgroundColor: '#3b82f6',
+            color: 'white',
+            border: 'none',
+            borderRadius: '6px',
+            cursor: 'pointer',
+            fontSize: '14px'
+          }}
+        >
+          Reload Page
+        </button>
+      </div>
+    );
+  }
 }
 
 export default App;
