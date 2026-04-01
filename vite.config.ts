@@ -1,21 +1,17 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import legacy from '@vitejs/plugin-legacy'
 
 export default defineConfig({
   base: '/finance-dashboard/',
-  plugins: [react()],
+  plugins: [
+    react(),
+    legacy({
+      targets: ['defaults', 'not IE 11']
+    })
+  ],
   build: {
-    target: 'es2020',
-    rollupOptions: {
-      output: {
-        format: 'iife',
-        name: 'app',
-        entryFileNames: 'main.js',
-        chunkFileNames: 'chunk-[name].js',
-        assetFileNames: '[name].[ext]',
-        manualChunks: undefined
-      }
-    }
+    target: 'es2020'
   },
   server: {
     port: 3000,
