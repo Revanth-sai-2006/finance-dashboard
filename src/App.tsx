@@ -3,6 +3,7 @@ import { Dashboard } from './components/Dashboard/Dashboard';
 import { useFinance } from './context/FinanceContext';
 import { exportToJSON } from './utils/helpers';
 
+// Finance Dashboard App - Professional Financial Management Interface
 function App() {
   const { role, setRole, isDarkMode, toggleDarkMode, transactions } = useFinance();
 
