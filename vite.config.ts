@@ -8,6 +8,8 @@ export default defineConfig({
     target: 'es2020',
     rollupOptions: {
       output: {
+        format: 'iife',
+        name: 'app',
         entryFileNames: 'main.js',
         chunkFileNames: 'chunk-[name].js',
         assetFileNames: '[name].[ext]',
