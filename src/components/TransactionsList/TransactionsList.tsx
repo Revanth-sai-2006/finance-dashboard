@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Trash2, Edit2, ChevronDown } from 'lucide-react';
-import { Transaction, FilterOptions, TransactionType } from '../../types';
+import { useState, useEffect } from 'react';
+import { Trash2, ChevronDown } from 'lucide-react';
+import { Transaction, TransactionType } from '../../types';
 import { formatCurrency, formatDate, sortTransactions } from '../../utils/helpers';
 import { categories } from '../../utils/mockData';
 import { useFinance } from '../../context/FinanceContext';
@@ -10,15 +10,14 @@ interface TransactionsListProps {
 }
 
 export function TransactionsList({ transactions }: TransactionsListProps) {
-  const { role, setFilters, filters, deleteTransaction } = useFinance();
+  const { role, setFilters, deleteTransaction } = useFinance();
   const [sortBy, setSortBy] = useState<'date' | 'amount'>('date');
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string | undefined>();
   const [selectedType, setSelectedType] = useState<TransactionType | undefined>();
-  const [editingId, setEditingId] = useState<string | null>(null);
 
   // Update filters in context
-  React.useEffect(() => {
+  useEffect(() => {
     setFilters({
       searchTerm: searchTerm || undefined,
       category: selectedCategory,

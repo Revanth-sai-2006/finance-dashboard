@@ -1,4 +1,3 @@
-import React from 'react';
 import { TrendingUp, AlertCircle, Award } from 'lucide-react';
 import { Transaction } from '../../types';
 import { calculateSummary, getMonthlyBalance, formatCurrency } from '../../utils/helpers';
@@ -59,22 +58,6 @@ export function Insights({ transactions }: InsightsProps) {
       color: savingsRate > 20 ? 'green' : savingsRate > 0 ? 'yellow' : 'red',
     },
   ];
-
-  const colorClasses: Record<string, string> = {
-    blue: 'bg-blue-50 dark:bg-blue-950 border-blue-100 dark:border-blue-800',
-    green: 'bg-green-50 dark:bg-green-950 border-green-100 dark:border-green-800',
-    red: 'bg-red-50 dark:bg-red-950 border-red-100 dark:border-red-800',
-    purple: 'bg-purple-50 dark:bg-purple-950 border-purple-100 dark:border-purple-800',
-    yellow: 'bg-yellow-50 dark:bg-yellow-950 border-yellow-100 dark:border-yellow-800',
-  };
-
-  const iconColorClasses: Record<string, string> = {
-    blue: 'text-blue-500',
-    green: 'text-green-500',
-    red: 'text-red-500',
-    purple: 'text-purple-500',
-    yellow: 'text-yellow-500',
-  };
 
   return (
     <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200/50 dark:border-gray-700/50 shadow-sm">
