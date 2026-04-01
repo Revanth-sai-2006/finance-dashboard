@@ -4,6 +4,15 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   base: '/finance-dashboard/',
   plugins: [react()],
+  build: {
+    rollupOptions: {
+      output: {
+        entryFileNames: '[name].js',
+        chunkFileNames: '[name].js',
+        assetFileNames: '[name].[ext]'
+      }
+    }
+  },
   server: {
     port: 3000,
     open: true
