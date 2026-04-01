@@ -37,6 +37,9 @@ jobs:
       - name: Build project
         run: npm run build
       
+      - name: Add .nojekyll file
+        run: touch ./dist/.nojekyll
+      
       - name: Setup Git Config
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
