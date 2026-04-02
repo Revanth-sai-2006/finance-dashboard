@@ -3,7 +3,8 @@ import react from '@vitejs/plugin-react'
 import legacy from '@vitejs/plugin-legacy'
 
 export default defineConfig({
-  base: '/finance-dashboard/',
+  // Use relative asset paths so the same build works on root domains and subpaths.
+  base: './',
   plugins: [
     react(),
     legacy({
